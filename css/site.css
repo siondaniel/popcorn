@@ -6,6 +6,7 @@
 /* set the background color to black */
 body{
     background-color: #0F0E0E;
+    margin: 0;
 }
 
 header {
@@ -22,16 +23,14 @@ header {
 /* align the info icon to the right */
 .info-container {
     margin-left: 20px;
+    /* lower the icon a bit */
+    margin-top: 10px;
 }
 
-/* download inter font family (created using ChatGPT) */
-@font-face {
-    font-family: 'Inter';
-    src: url('fonts/Inter-Regular.woff2') format('woff2'),
-         url('fonts/Inter-Regular.woff') format('woff');
-    /* Add more src lines for different font weights or styles if needed */
-    font-weight: normal;
-    font-style: normal;
+#infoIcon:hover {
+    cursor: pointer;
+    /* dim the icon a bit */
+    filter: brightness(0.8);
 }
 
 /* set the font color of the main header to red */
@@ -97,6 +96,7 @@ h1{
 }
 
 .box:hover {
+    cursor: pointer;
     background: #242627;
 }
 

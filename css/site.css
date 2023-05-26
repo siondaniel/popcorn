@@ -38,23 +38,29 @@ h1{
 }
 
 .popup-message {
-    display: none;
-    /* center the popup on the screen horizontally */
+    /* set the position to absolute so we can position it in the center of the screen */
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     background-color: #242627;
     width: 949px;
     height: 62px;
+    /* round the corners */
     border-radius: 10px;
 }
   
 .message-content {
-    text-align: center;
     color: #FFE0E0;
     font-family: 'Inter', Arial, sans-serif;
+    /* center the text in the popup message */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
 }
 
+/* Style the close button of the popup message */
 .close-button {
     border: none;
     background-color: transparent;
@@ -64,4 +70,4 @@ h1{
     position: absolute;
     top: 5px;
     right: 5px;
-  }
+}

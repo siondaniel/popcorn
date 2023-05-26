@@ -8,6 +8,17 @@ body{
     background-color: #0F0E0E;
 }
 
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* align the logo to the left */
+.logo-container {
+    margin-right: 20px;
+}
+
 /* download inter font family (created using ChatGPT) */
 @font-face {
     font-family: 'Inter';
@@ -22,8 +33,35 @@ body{
 h1{
     color: #DC5148;
     font-family: 'Inter', Arial, sans-serif;
-    /* font size to 50.19px */
     font-size: 50.19px;
-    /* center the text */
-    text-align: center;
+    font-weight: 600;
 }
+
+.popup-message {
+    display: none;
+    /* center the popup on the screen horizontally */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #242627;
+    width: 949px;
+    height: 62px;
+    border-radius: 10px;
+}
+  
+.message-content {
+    text-align: center;
+    color: #FFE0E0;
+    font-family: 'Inter', Arial, sans-serif;
+}
+
+.close-button {
+    border: none;
+    background-color: transparent;
+    color: #785757;
+    font-size: 18px;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+  }

@@ -19,6 +19,11 @@ header {
     margin-right: 20px;
 }
 
+/* align the info icon to the right */
+.info-container {
+    margin-left: 20px;
+}
+
 /* download inter font family (created using ChatGPT) */
 @font-face {
     font-family: 'Inter';
@@ -70,4 +75,37 @@ h1{
     position: absolute;
     top: 5px;
     right: 5px;
+}
+
+.box-list {
+    overflow-x: auto;
+    white-space: nowrap;
+    padding: 10px 0;
+}
+  
+.box {
+    background: #191C1D;
+    display: inline-block;
+    width: 221px;
+    height: 68px;
+    left: 46px;
+    top: 222px;
+    border-radius: 12px;
+    /* space between boxes */
+    margin-right: 32px;
+    margin-left: 46px;
+}
+
+.box:hover {
+    background: #242627;
+}
+
+.box p{
+    color: #FFFFFF;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    /* center the text in the box */
+    text-align: center;
+    line-height: 34px;
 }

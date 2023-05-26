@@ -1,0 +1,14 @@
+/* 
+    Popcorn -
+    CSS for the main site
+*/
+
+/* set the background color to black */
+body{
+    background-color: #0F0E0E;
+}
+
+/* set the font color of the main header to red */
+h1{
+    color: #DC5148;
+}

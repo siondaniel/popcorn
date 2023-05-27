@@ -54,6 +54,10 @@ h1{
     /* round the corners */
     border-radius: 10px;
 }
+
+.popup-message.active {
+    display: block;
+}
   
 .message-content {
     color: #FFE0E0;
@@ -102,6 +106,7 @@ h1{
     /* space between boxes */
     margin-right: 32px;
     margin-left: 46px;
+    margin-top: 102px;
 }
 
 .box:hover {

@@ -2,6 +2,18 @@
 // Author: Sion Daniel
 // Date: 05/26/2023
 
+// Shuffle the movies array (Taken from ChatGPT)
+function shuffleMovies(movieList) {
+    var movies = movieList.find('img');
+    movies.sort(function() {
+      return 0.5 - Math.random();
+    });
+    movieList.empty();
+    movieList.append(movies);
+}
+
+// The above function shuffles single dimensional arrays
+
 $(document).ready(function() {
     var popupMessage = $('#popupMessage');
     var infoIcon = $('#infoIcon');
@@ -45,5 +57,24 @@ $(document).ready(function() {
         var index = $(this).index() % colors.length;
         $(this).removeClass(colors.join(' ')).addClass(colors[index]);
     });
+
+    // Gather all movies into array called moviesList
+    var movieList = $('.movie-list');
+    shuffleMovies(movieList);
+
+    // Find all movies and calculate how many movies per row
+    var movies = movieList.find('img');
+    var moviesPerRow = Math.ceil(movies.length / 3);
+
+    // Clear the movie list
+    movieList.empty();
+
+    // Create 3 rows of movies
+    for (var i = 0; i < movies.length; i += moviesPerRow) {
+        var moviesInRow = movies.slice(i, i + moviesPerRow);
+        var row = $('<div class="row"></div>');
+        row.append(moviesInRow);
+        movieList.append(row);
+    }
 
 });

@@ -188,3 +188,30 @@ h1{
 .box.Mystery.clicked p {
     color: #813c85;
 }
+
+.movie-list {
+    margin-left: 46px;
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    overflow-x: auto;
+    width: 100%; /* Ensure the movie list spans the full width */
+    height: 500px; /* Adjust the predefined height as needed */
+}
+
+.movie-list .row {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: calc(33.33% - 10px); /* Adjust the height as needed */
+}
+  
+.movie-list img {
+    flex-shrink: 0;
+    width: auto;
+    height: 100%;
+    margin: 5px;
+}

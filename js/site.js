@@ -57,8 +57,8 @@ $(document).ready(function() {
         var index = $(this).index() % colors.length;
         $(this).removeClass(colors.join(' ')).addClass(colors[index]);
     });
-
-    // Gather all movies into array called moviesList
+        
+    // Create the movie list
     var movieList = $('.movie-list');
     shuffleMovies(movieList);
 
@@ -76,5 +76,8 @@ $(document).ready(function() {
         row.append(moviesInRow);
         movieList.append(row);
     }
+
+    // Display the movie list by making display: flex
+    movieList.css('display', 'flex');
 
 });

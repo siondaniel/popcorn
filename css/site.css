@@ -199,6 +199,8 @@ h1{
     overflow-x: auto;
     width: 100%; /* Ensure the movie list spans the full width */
     height: 500px; /* Adjust the predefined height as needed */
+    /* don't show the scrollbar */
+    scrollbar-width: none;
 }
 
 .movie-list .row {
@@ -214,4 +216,26 @@ h1{
     width: auto;
     height: 100%;
     margin: 5px;
+    border-radius: 10px;
+}
+
+.movie-list img:hover{
+    cursor: pointer;
+    /* dim the image a bit */
+    filter: brightness(0.8);
+}
+
+/* I have a dim class for the images that are not selected 
+It looks like this: movieList.find('img').not(movie).addClass('dim');
+*/
+.movie-list img.dim {
+    filter: brightness(0.5);
+}
+
+.movie-list img.Action{
+    box-shadow: 0 0 15px #fed71a;
+}
+
+.movie-list img.Horror{
+    box-shadow: 0 0 15px #82111f;
 }

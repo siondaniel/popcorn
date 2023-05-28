@@ -109,6 +109,7 @@ $(document).ready(function() {
     var closeButton = $('.close-button');
     var boxes = $('.box');
     var selectedCategories = []; // Array to store selected categories
+    var selectedMovies = []; // Array to store selected movies
 
     // Hide the popup message when the close button is clicked
     closeButton.on('click', function() {
@@ -116,20 +117,6 @@ $(document).ready(function() {
         boxes.css('margin-top', '20px');
         popupMessage.hide();
     });
-
-    //If the popup message is visible, hide it when the user clicks anywhere else on the page
-    // NOT SURE WE REALLY WANT THIS
-    /*
-    $(document).mouseup(function(event) {
-        if (popupMessage.is(':visible')) {
-            if (!popupMessage.is(event.target) && popupMessage.has(event.target).length === 0) {
-                popupMessage.removeClass('active');
-                boxes.css('margin-top', '20px');
-                popupMessage.hide();
-            }
-        }
-    });
-    */
 
     // Show the popup message when the info icon is clicked
     infoIcon.on('click', function() {
@@ -152,8 +139,10 @@ $(document).ready(function() {
         var category = colors[index];
         var isSelected = $(this).hasClass('clicked');
 
+        // Add category to list of selected categories
         if (isSelected) {
             selectedCategories.push(category);
+        // Remove category from list of selected categories
         } else {
             var categoryIndex = selectedCategories.indexOf(category);
             if (categoryIndex !== -1) {
@@ -167,27 +156,6 @@ $(document).ready(function() {
         createMovieList(movieList);
         shuffleMovies(movieList, selectedCategories);
         displayMovies(movieList);
-
-        // Define a variable for the clicked boxes
-        /*var clickedBoxes = $('.clicked');
-
-        // IF there are more than 0 clicked boxes, show the movies thhat match the clicked boxes
-        // Loop through the clicked boxes
-        for (var i = 0; i < clickedBoxes.length; i++) {
-
-            // Define a variable for the clicked box
-            var clickedBox = $(clickedBoxes[i]);
-            
-            /*
-            Ex. we have this: <div class="box" id="Adventure" data-category="adventure"><p>Adventure</p></div>
-            If the user has this box selected, we want to show all movies with the data-category="adventure" attribute
-            *
-            var category = clickedBox.attr('data-category');
-            console.log(category);
-            var movieList = $('.movie-list');
-            shuffleMovies(movieList, category);
-            displayMovies(movieList);
-        }*/
     });
 
     // Define the movie list
@@ -203,4 +171,33 @@ $(document).ready(function() {
     
     // Display the movies
     displayMovies(movieList);
+
+    // Attach click event handler to movies
+    movieList.on('click', 'img', function() {
+        var movie = $(this);
+        // Add movie to list of selected movies
+        var movieName = movie.attr('alt');
+        var isSelected = $(this).hasClass('clicked');
+
+        if (isSelected) {
+            selectedMovies.push(movie);
+        } else {
+            var movieIndex = selectedMovies.indexOf(movie);
+            if (movieIndex !== -1) {
+                selectedMovies.splice(movieIndex, 1);
+            }
+        }
+        // Perform desired actions when a movie is clicked
+        console.log('Clicked on movie:', movieName);
+        // If the movie is Action, dim all other movies, and highlight the clicked movie
+        if (movie.data('category') === 'Action') {
+            // Highlight the clicked movie
+            movie.toggleClass('Action');
+            // Dim all other movies that are not selected
+            movieList.find('img').not(movie).toggleClass('dim');
+        } else if (movie.data('category') == 'Horror') {
+            movie.toggleClass('Horror');
+            movieList.find('img').not(movie).toggleClass('dim');
+        }
+    });
 });

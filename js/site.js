@@ -2,6 +2,47 @@
 // Author: Sion Daniel
 // Date: 05/26/2023
 
+// Define the movies by genre
+var movies = {
+    'Action': [
+        'Atomic Blonde',
+        'Die Hard(1988)',
+        'Drive',
+        'Gladiator',
+        'Inception',
+        'John Wick (2014)',
+        'Kill Bill',
+        'Matrix (1999)',
+        'Mr And Ms Smith',
+        'Police Stories',
+        'Predator (1987)',
+        'Robocop',
+        'Rush Hour (1998)',
+        'Super Cop (1992)',
+        'Top Gun (1987)'
+    ],
+    'Horror': [
+        'A Girl Walks Home At Night Alone',
+        'Aliens',
+        'A Nightmare On Elm Street',
+        'Demon',
+        'Evil Dead',
+        'Frankenstein',
+        'It',
+        'Land Of The Dead',
+        'Lights Out',
+        'Scream',
+        'Shadow Of The Vampire',
+        'The House Of Dracula',
+        'The House Of The Devil',
+        'The Ring',
+        'Zombieland'
+    ]
+};
+
+// Define the movie categories
+var categories = Object.keys(movies);
+
 // Shuffle the movies array (Taken from ChatGPT)
 function shuffleMovies(movieList, genre='all' ){
     var movies = movieList.find('img');
@@ -61,7 +102,10 @@ $(document).ready(function() {
         var index = $(this).index() % colors.length;
         $(this).removeClass(colors.join(' ')).addClass(colors[index]);
 
-        var category = $(this).data('category');
+        // Define a variable for the clicked boxes
+        var categories = boxes.filter('.clicked').map(function() {
+            return $(this).text();
+        }).get();
     
         movieRows.each(function() {
             var $row = $(this);
@@ -71,21 +115,44 @@ $(document).ready(function() {
             $row.empty().append($filteredImages);
         });
     });
+
+    // Define the movie list
+    var movieList = $('.movie-list');
+
+    // Clear the movie list
+    movieList.empty();
+
+    // Create the movie list
+    for (var i = 0; i < categories.length; i++) {
+        var category = categories[i];
+        var moviesInCategory = movies[category];
+
+        for (var j = 0; j < moviesInCategory.length; j++) {
+            var movie = moviesInCategory[j];
+            // create another movie variable with the spaces removed
+            var movieNoSpaces = movie.replace(/\s/g, '');
+            var movieImage = $('<img src="img/movies/' + category + '/' + movieNoSpaces + '.png" alt="' + movie + '" data-category="' + category + '">');
+            movieList.append(movieImage);
+        }
+    }
+
+    // Now make the movies appear on the page
+    movieList.css('display', 'flex');
         
     // Create the movie list
-    var movieList = $('.movie-list');
+    // var movieList = $('.movie-list');
     shuffleMovies(movieList);
 
     // Find all movies and calculate how many movies per row
-    var movies = movieList.find('img');
-    var moviesPerRow = Math.ceil(movies.length / 3);
+    var moviesArray = movieList.find('img');
+    var moviesPerRow = Math.ceil(moviesArray.length / 3);
 
     // Clear the movie list
     movieList.empty();
 
     // Create 3 rows of movies
-    for (var i = 0; i < movies.length; i += moviesPerRow) {
-        var moviesInRow = movies.slice(i, i + moviesPerRow);
+    for (var i = 0; i < moviesArray.length; i += moviesPerRow) {
+        var moviesInRow = moviesArray.slice(i, i + moviesPerRow);
         var row = $('<div class="row"></div>');
         row.append(moviesInRow);
         movieList.append(row);

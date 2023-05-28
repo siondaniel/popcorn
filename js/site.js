@@ -172,6 +172,34 @@ $(document).ready(function() {
     // Display the movies
     displayMovies(movieList);
 
+    // Attach hover event handler to movies
+    movieList.on('mouseenter', 'img', function() {
+        console.log('hovered in');
+        var movie = $(this);
+
+        // Get the movie name
+        var movieName = movie.attr('alt');
+        console.log(movieName);
+
+        // Write the movie name to the top of the page
+        var movieNameElement = $('<h1 class="movie-name">' + movieName + '</h1>');
+        $('.movie-name').remove();
+        // How to put text over the image? 
+        /*
+        YOUR CODE HERE
+        */
+        movie.prepend(movieNameElement);
+
+    });
+
+    movieList.on('mouseleave', 'img', function() {
+        console.log('hovered out');
+        var movie = $(this);
+        // Remove the popup message from the movie
+        movie.find('.popup-message').remove();
+        //$(this).removeClass('hovered');
+    });
+
     // Attach click event handler to movies
     movieList.on('click', 'img', function() {
         $(this).toggleClass('clicked');

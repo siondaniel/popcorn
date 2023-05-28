@@ -3,8 +3,13 @@
 // Date: 05/26/2023
 
 // Shuffle the movies array (Taken from ChatGPT)
-function shuffleMovies(movieList) {
+function shuffleMovies(movieList, genre='all' ){
     var movies = movieList.find('img');
+    // Filter movies by genre
+    if (genre != 'all') {
+        movies = movies.filter('[data-category="' + genre + '"]');
+    }
+    // Shuffle the movies
     movies.sort(function() {
       return 0.5 - Math.random();
     });
@@ -12,13 +17,12 @@ function shuffleMovies(movieList) {
     movieList.append(movies);
 }
 
-// The above function shuffles single dimensional arrays
-
 $(document).ready(function() {
     var popupMessage = $('#popupMessage');
     var infoIcon = $('#infoIcon');
     var closeButton = $('.close-button');
     var boxes = $('.box');
+    var movieRows = $('.movie-list .row');
 
     // Hide the popup message when the close button is clicked
     closeButton.on('click', function() {
@@ -56,6 +60,16 @@ $(document).ready(function() {
         var colors = ['Adventure', 'Comedy', 'Action', 'Western', 'Documentary', 'Horror', 'Mystery'];
         var index = $(this).index() % colors.length;
         $(this).removeClass(colors.join(' ')).addClass(colors[index]);
+
+        var category = $(this).data('category');
+    
+        movieRows.each(function() {
+            var $row = $(this);
+            var $images = $row.data('originalImages');
+            var $filteredImages = $images.filter('[data-category="' + category + '"]');
+            
+            $row.empty().append($filteredImages);
+        });
     });
         
     // Create the movie list
@@ -79,5 +93,4 @@ $(document).ready(function() {
 
     // Display the movie list by making display: flex
     movieList.css('display', 'flex');
-
 });

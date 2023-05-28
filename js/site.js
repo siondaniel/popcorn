@@ -174,30 +174,59 @@ $(document).ready(function() {
 
     // Attach click event handler to movies
     movieList.on('click', 'img', function() {
+        $(this).toggleClass('clicked');
+
         var movie = $(this);
         // Add movie to list of selected movies
         var movieName = movie.attr('alt');
-        var isSelected = $(this).hasClass('clicked');
+        var isSelected = movie.hasClass('clicked');
 
         if (isSelected) {
-            selectedMovies.push(movie);
+            // Select the movie
+            movie.addClass('selected');
+            // Add the movie to the selectedMovies array if it's not already present
+            if (!selectedMovies.includes(movieName)) {
+                selectedMovies.push(movieName);
+            }
         } else {
-            var movieIndex = selectedMovies.indexOf(movie);
+            // Deselect the movie
+            movie.removeClass('selected');
+            // Remove the movie from the selectedMovies array
+            var movieIndex = selectedMovies.indexOf(movieName);
             if (movieIndex !== -1) {
                 selectedMovies.splice(movieIndex, 1);
             }
+            movie.removeClass('Action');
+            movie.removeClass('Horror');
         }
-        // Perform desired actions when a movie is clicked
-        console.log('Clicked on movie:', movieName);
-        // If the movie is Action, dim all other movies, and highlight the clicked movie
-        if (movie.data('category') === 'Action') {
-            // Highlight the clicked movie
-            movie.toggleClass('Action');
-            // Dim all other movies that are not selected
-            movieList.find('img').not(movie).toggleClass('dim');
-        } else if (movie.data('category') == 'Horror') {
-            movie.toggleClass('Horror');
-            movieList.find('img').not(movie).toggleClass('dim');
-        }
+
+        console.log(selectedMovies);
+        // Apply styles based on the selectedMovies array
+        movieList.find('img').each(function() {
+            var movieElement = $(this);
+
+            // If no movies are selected, remove all styles
+            if (selectedMovies.length == 0) {
+                movieElement.removeClass('dim');
+                movieElement.removeClass('Action');
+                movieElement.removeClass('Horror');
+                return;
+            }
+            
+            var movieName = movieElement.attr('alt');
+            
+            // If the movie is selected, highlight it
+            if (selectedMovies.includes(movieName)) {
+                movieElement.removeClass('dim');
+                if (movieElement.data('category') === 'Action') {
+                    // Highlight the clicked movie
+                    movieElement.addClass('Action');
+                } else if (movieElement.data('category') == 'Horror') {
+                    movieElement.addClass('Horror');
+                }
+            } else {
+                movieElement.addClass('dim');
+            }
+        });
     });
 });

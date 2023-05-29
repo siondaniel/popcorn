@@ -16,7 +16,7 @@ var movies = {
         'Mr And Ms Smith',
         'Police Stories',
         'Predator (1987)',
-        'RoboCop',
+        'Robocop',
         'Rush Hour (1998)',
         'Super Cop (1992)',
         'Top Gun (1987)'

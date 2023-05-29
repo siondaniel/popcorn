@@ -54,8 +54,7 @@ function shuffleMovies(movieList, categories=[] ){
             return categories.indexOf(movieCategory) !== -1;
         });
     }
-    //    movies = movies.filter('[data-category="' + genre + '"]');
-    //}
+
     // Shuffle the movies (Taken from ChatGPT)
     moviesFound.sort(function() {
       return 0.5 - Math.random();
@@ -155,6 +154,33 @@ $(document).ready(function() {
         movieList.empty();
         createMovieList(movieList);
         shuffleMovies(movieList, selectedCategories);
+
+        movieList.find('img').each(function() {
+            var movieElement = $(this);
+
+            // If no movies are selected, remove all styles
+            if (selectedMovies.length == 0) {
+                movieElement.removeClass('dim');
+                movieElement.removeClass('Action');
+                movieElement.removeClass('Horror');
+                return;
+            }
+            
+            var movieName = movieElement.attr('alt');
+            
+            // If the movie is selected, highlight it
+            if (selectedMovies.includes(movieName)) {
+                movieElement.removeClass('dim');
+                if (movieElement.data('category') === 'Action') {
+                    // Highlight the clicked movie
+                    movieElement.addClass('Action');
+                } else if (movieElement.data('category') == 'Horror') {
+                    movieElement.addClass('Horror');
+                }
+            } else {
+                movieElement.addClass('dim');
+            }
+        });
         displayMovies(movieList);
     });
 
@@ -174,30 +200,62 @@ $(document).ready(function() {
 
     // Attach hover event handler to movies
     movieList.on('mouseenter', 'img', function() {
-        console.log('hovered in');
+        
+        // Add the hovered class to the movie
         var movie = $(this);
+        movie.addClass('hovered');
 
         // Get the movie name
         var movieName = movie.attr('alt');
-        console.log(movieName);
 
-        // Write the movie name to the top of the page
-        var movieNameElement = $('<h1 class="movie-name">' + movieName + '</h1>');
-        $('.movie-name').remove();
-        // How to put text over the image? 
-        /*
-        YOUR CODE HERE
-        */
-        movie.prepend(movieNameElement);
+        // Create a new popup message element
+        var popupMessageElement = $('<div class="popup-movie" id="movieMessage"></div>');
+        var messageContentElement = $('<div class="movie-content" id="movieContent"></div>');
+        var movieNameElement = $('<p class="movie-title">' + movieName + '</p>');
+
+        // Append the movie name and close button to the message content element
+        messageContentElement.append(movieNameElement);
+        popupMessageElement.append(messageContentElement);
+
+        // Change the CSS of the popup message element
+        popupMessageElement.css({
+            // Make it appear directly on top of the movie (overlapping)
+            position: 'absolute',
+            top: movie.offset().top,
+            left: movie.offset().left,
+            // Make it the same size as the movie
+            width: movie.width(),
+            height: movie.height(),
+            // Make it appear on top of the movie (overlapping)
+            'z-index': 1,
+        });
+
+        // Append the popup message element to the movie
+        $('body').prepend(popupMessageElement);
+
+        // Attach the mouseout event handler to the popup message element
+        movie.on('mouseleave', function() {
+            // Remove the popup message from the movie
+            popupMessageElement.remove();
+            // Remove the hover class from the movie element
+            movie.removeClass('hovered');
+        });
+
+        // Attach click event handler to popup message
+        popupMessageElement.on('click', function(event) {
+            event.stopPropagation(); // Prevent the click event from propagating to underlying elements
+            var movie = movieList.find('img.hovered'); // Get the corresponding movie element
+            movie.trigger('click'); // Trigger the click event on the movie element
+        });
 
     });
 
-    movieList.on('mouseleave', 'img', function() {
-        console.log('hovered out');
-        var movie = $(this);
-        // Remove the popup message from the movie
-        movie.find('.popup-message').remove();
-        //$(this).removeClass('hovered');
+    // Attach scroll event handler to movieList
+    movieList.on('scroll', function() {
+        // Remove the hovered class from all movies
+        movieList.find('img.hovered').removeClass('hovered');
+        // Remove the popup message from all movies
+        $('body').find('.popup-movie').remove();
     });
 
     // Attach click event handler to movies

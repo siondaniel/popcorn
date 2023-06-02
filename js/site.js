@@ -37,7 +37,24 @@ var movies = {
         'The House Of The Devil',
         'The Ring',
         'Zombieland'
-    ]
+    ],
+    'Mystery': [
+        'Midsommar',
+        'Nope',
+        'Glass Onion',
+        'Escape Room',
+        'Shutter Island',
+        'Death Roulette',
+        'Gone Girl',
+        'The Killing of a Sacred Deer',
+        'The Voyeurs',
+        'The Wonder',
+        'Zodiac',
+        'The Game',
+        'The Girl with the Dragon Tattoo',
+        'The Prestige',
+        'Transcendence'
+    ],
 };
 
 // Define the movie categories

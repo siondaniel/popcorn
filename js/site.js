@@ -104,8 +104,7 @@ var movies = {
         'Forensic Files',
         'The Rescue',
         'The God Man',
-        'Reggie'
-
+        'Reggie',
     ],
     'Western': [
         'Broken Arrow',

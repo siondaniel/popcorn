@@ -62,7 +62,7 @@ var movies = {
         'Interstellar',
         'Inception',
         'Peter Pan',
-        'Harry Potter and the Sorcerers Stone',
+        "Harry Potter and the Sorcerer's Stone",
         'Kingsman: The Secret Service',
         'The Flash',
         'Avengers: Infinity War',

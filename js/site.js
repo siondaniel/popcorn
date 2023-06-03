@@ -95,7 +95,7 @@ var movies = {
         'Planet Earth II',
         "The Last Dance",
         'Chimp Empire',
-        "100 Foot Wave",
+        '100 Foot Wave',
         'Roman Empire',
         'The Social Dilemma',
         'Faces of Death',

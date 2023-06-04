@@ -4,126 +4,125 @@
 
 // Define the movies by genre
 var movies = {
-    'Action': [
-        'Atomic Blonde',
-        'Die Hard(1988)',
-        'Drive',
-        'Gladiator',
-        'Inception',
-        'John Wick (2014)',
-        'Kill Bill',
-        'Matrix (1999)',
-        'Mr And Ms Smith',
-        'Police Stories',
-        'Predator (1987)',
-        'Robocop',
-        'Rush Hour (1998)',
-        'Super Cop (1992)',
-        'Top Gun (1987)'
-    ],
-    'Horror': [
-        'A Girl Walks Home At Night Alone',
-        'Aliens',
-        'A Nightmare On Elm Street',
-        'Demon',
-        'Evil Dead',
-        'Frankenstein',
-        'It',
-        'Land Of The Dead',
-        'Lights Out',
-        'Scream',
-        'Shadow Of The Vampire',
-        'The House Of Dracula',
-        'The House Of The Devil',
-        'The Ring',
-        'Zombieland'
-    ],
-    'Mystery': [
-        'Midsommar',
-        'Nope',
-        'Glass Onion',
-        'Escape Room',
-        'Shutter Island',
-        'Death Roulette',
-        'Gone Girl',
-        'The Killing of a Sacred Deer',
-        'The Voyeurs',
-        'The Wonder',
-        'Zodiac',
-        'The Game',
-        'The Girl with the Dragon Tattoo',
-        'The Prestige',
-        'Transcendence'
-    ],
-    'Adventure': [
-        'Dune',
-        'Transformers',
-        'Everything, Everywhere, All at Once',
-        'Interstellar',
-        'Inception',
-        'Peter Pan',
-        "Harry Potter and the Sorcerer's Stone",
-        'Kingsman: The Secret Service',
-        'The Flash',
-        'Avengers: Infinity War',
-        'Pirates of the Caribbean',
-        'Little Mermaid',
-        'Star Trek Beyond',
-        'Jurassic World',
-        'Into the Wild',
-    ],
-    'Comedy': [
-        'Groundhog Day',
-        'Ace Ventura: Pet Detective',
-        'Tommy Boy',
-        '21 Jump Street',
-        "Bill and Ted's Excellent Adventure",
-        'The Grand Budapest Hotel',
-        'Bettlejuice',
-        'Clue',
-        'Galaxy Quest',
-        'Kung Fu Hustle',
-        'Elf',
-        'Ghostbusters',
-        'Coming to America',
-        'Clueless',
-        'Airplane',
-    ],
-    'Documentary': [
-        'Queen Cleopatra',
-        'Missing: Dead or Alive',
-        'Planet Earth II',
-        "The Last Dance",
-        'Chimp Empire',
-        '100 Foot Wave',
-        'Roman Empire',
-        'The Social Dilemma',
-        'Faces of Death',
-        'Making a Murderer',
-        'The Deepest Breath',
-        'Forensic Files',
-        'The Rescue',
-        'The God Man',
-        'Reggie',
-    ],
-    'Western': [
-        'Broken Arrow',
-        'Magnificent Seven',
-        'For a Few Dollars More',
-        'The Harder They Fall',
-        'Django',
-        'A Fist Full of Dollars',
-        'Terror on the Prairie',
-        'Vengenance',
-        'Brokeback Mountain',
-        'Once Upon a Time in the West',
-        'High Noon',
-        'Silverado',
-        'Hostiles',
-        'Tombstone',
-        'Rio Bravo',
-    ],
-
+    'Action': {
+        'Atomic Blonde': [],
+        'Die Hard(1988)': [],
+        'Drive': [],
+        'Gladiator': [],
+        'Inception': [],
+        'John Wick (2014)': [],
+        'Kill Bill': [],
+        'Matrix (1999)': [],
+        'Mr And Ms Smith': [],
+        'Police Stories': [],
+        'Predator (1987)': [],
+        'Robocop': ['Cyberpunk 2077', 'Watch Dogs Legion'],
+        'Rush Hour (1998)': [],
+        'Super Cop (1992)': [],
+        'Top Gun (1987)': []
+    },
+    'Horror': {
+        'A Girl Walks Home At Night Alone': [],
+        'Aliens': [],
+        'A Nightmare On Elm Street': [],
+        'Demon': [],
+        'Evil Dead': [],
+        'Frankenstein': [],
+        'It': [],
+        'Land Of The Dead': [],
+        'Lights Out': [],
+        'Scream': [],
+        'Shadow Of The Vampire': [],
+        'The House Of Dracula': [],
+        'The House Of The Devil': [],
+        'The Ring': [],
+        'Zombieland': []
+    },
+    'Mystery': {
+        'Midsommar': [],
+        'Nope': [],
+        'Glass Onion': [],
+        'Escape Room': [],
+        'Shutter Island': [],
+        'Death Roulette': [],
+        'Gone Girl': [],
+        'The Killing of a Sacred Deer': [],
+        'The Voyeurs': [],
+        'The Wonder': [],
+        'Zodiac': [],
+        'The Game': [],
+        'The Girl with the Dragon Tattoo': [],
+        'The Prestige': [],
+        'Transcendence': []
+    },
+    'Adventure': {
+        'Dune': [],
+        'Transformers': [],
+        'Everything, Everywhere, All at Once': [],
+        'Interstellar': [],
+        'Inception': [],
+        'Peter Pan': [],
+        "Harry Potter and the Sorcerer's Stone": [],
+        'Kingsman: The Secret Service': [],
+        'The Flash': [],
+        'Avengers: Infinity War': [],
+        'Pirates of the Caribbean': [],
+        'Little Mermaid': [],
+        'Star Trek Beyond': [],
+        'Jurassic World': [],
+        'Into the Wild': []
+    },
+    'Comedy': {
+        'Groundhog Day': [],
+        'Ace Ventura: Pet Detective': [],
+        'Tommy Boy': [],
+        '21 Jump Street': [],
+        "Bill and Ted's Excellent Adventure": [],
+        'The Grand Budapest Hotel': [],
+        'Bettlejuice': [],
+        'Clue': [],
+        'Galaxy Quest': [],
+        'Kung Fu Hustle': [],
+        'Elf': [],
+        'Ghostbusters': [],
+        'Coming to America': [],
+        'Clueless': [],
+        'Airplane': []
+    },
+    'Documentary': {
+        'Queen Cleopatra': [],
+        'Missing: Dead or Alive': [],
+        'Planet Earth II': [],
+        "The Last Dance": [],
+        'Chimp Empire': [],
+        '100 Foot Wave': [],
+        'Roman Empire': [],
+        'The Social Dilemma': [],
+        'Faces of Death': [],
+        'Making a Murderer': [],
+        'The Deepest Breath': [],
+        'Forensic Files': [],
+        'The Rescue': [],
+        'The God Man': [],
+        'Reggie': []
+    },
+    'Western': {
+        'Broken Arrow': [],
+        'Magnificent Seven': [],
+        'For a Few Dollars More': [],
+        'The Harder They Fall': [],
+        'Django': [],
+        'A Fist Full of Dollars': [],
+        'Terror on the Prairie': [],
+        'Vengenance': [],
+        'Brokeback Mountain': [],
+        'Once Upon a Time in the West': [],
+        'High Noon': [],
+        'Silverado': [],
+        'Hostiles': [],
+        'Tombstone': [],
+        'Rio Bravo': []
+    }
 };
 
 // Define the movie categories
@@ -175,7 +174,7 @@ function createMovieList(movieList) {
     // Create the movie list
     for (var i = 0; i < categories.length; i++) {
         var category = categories[i];
-        var moviesInCategory = movies[category];
+        var moviesInCategory = Object.keys(movies[category]);
 
         for (var j = 0; j < moviesInCategory.length; j++) {
             var movie = moviesInCategory[j];
@@ -187,11 +186,54 @@ function createMovieList(movieList) {
     }
 }
 
+// Style Selected Movies
+function styleSelectedMovies(movieElement, selectedMovies) {
+    // If no movies are selected, remove all styles
+    if (selectedMovies.length == 0) {
+        movieElement.removeClass('dim');
+        movieElement.removeClass('Action');
+        movieElement.removeClass('Horror');
+        movieElement.removeClass('Mystery');
+        movieElement.removeClass('Adventure');
+        movieElement.removeClass('Comedy');
+        movieElement.removeClass('Documentary');
+        movieElement.removeClass('Western');
+        return;
+    }
+    
+    var movieName = movieElement.attr('alt');
+    
+    // If the movie is selected, highlight it
+    if (selectedMovies.includes(movieName)) {
+        movieElement.removeClass('dim');
+        if (movieElement.data('category') === 'Action') {
+            // Highlight the clicked movie
+            movieElement.addClass('Action');
+        } else if (movieElement.data('category') == 'Horror') {
+            movieElement.addClass('Horror');
+        } else if (movieElement.data('category') == 'Mystery') {
+            movieElement.addClass('Mystery');
+        } else if (movieElement.data('category') == 'Adventure') {
+            movieElement.addClass('Adventure');
+        } else if (movieElement.data('category') == 'Comedy') {
+            movieElement.addClass('Comedy');
+        } else if (movieElement.data('category') == 'Documentary') {
+            movieElement.addClass('Documentary');
+        } else if (movieElement.data('category') == 'Western') {
+            movieElement.addClass('Western');
+        }
+    } else {
+        movieElement.addClass('dim');
+    }
+}
+
 $(document).ready(function() {
     // Define variables
     var popupMessage = $('#popupMessage');
     var infoIcon = $('#infoIcon');
-    var closeButton = $('.close-button');
+    var closeButton = $('.close-button'); // Close popup button
+    var gameButton = $('#gameButton'); // Generate game button
+    var movieList = $('.movie-list'); // List of movies
     var boxes = $('.box');
     var selectedCategories = []; // Array to store selected categories
     var selectedMovies = []; // Array to store selected movies
@@ -243,35 +285,10 @@ $(document).ready(function() {
 
         movieList.find('img').each(function() {
             var movieElement = $(this);
-
-            // If no movies are selected, remove all styles
-            if (selectedMovies.length == 0) {
-                movieElement.removeClass('dim');
-                movieElement.removeClass('Action');
-                movieElement.removeClass('Horror');
-                return;
-            }
-            
-            var movieName = movieElement.attr('alt');
-            
-            // If the movie is selected, highlight it
-            if (selectedMovies.includes(movieName)) {
-                movieElement.removeClass('dim');
-                if (movieElement.data('category') === 'Action') {
-                    // Highlight the clicked movie
-                    movieElement.addClass('Action');
-                } else if (movieElement.data('category') == 'Horror') {
-                    movieElement.addClass('Horror');
-                }
-            } else {
-                movieElement.addClass('dim');
-            }
+            styleSelectedMovies(movieElement, selectedMovies);
         });
         displayMovies(movieList);
     });
-
-    // Define the movie list
-    var movieList = $('.movie-list');
 
     // Clear the movie list
     movieList.empty();
@@ -372,33 +389,38 @@ $(document).ready(function() {
             movie.removeClass('Horror');
         }
 
-        console.log(selectedMovies);
         // Apply styles based on the selectedMovies array
         movieList.find('img').each(function() {
             var movieElement = $(this);
-
-            // If no movies are selected, remove all styles
-            if (selectedMovies.length == 0) {
-                movieElement.removeClass('dim');
-                movieElement.removeClass('Action');
-                movieElement.removeClass('Horror');
-                return;
-            }
-            
-            var movieName = movieElement.attr('alt');
-            
-            // If the movie is selected, highlight it
-            if (selectedMovies.includes(movieName)) {
-                movieElement.removeClass('dim');
-                if (movieElement.data('category') === 'Action') {
-                    // Highlight the clicked movie
-                    movieElement.addClass('Action');
-                } else if (movieElement.data('category') == 'Horror') {
-                    movieElement.addClass('Horror');
-                }
-            } else {
-                movieElement.addClass('dim');
-            }
+            styleSelectedMovies(movieElement, selectedMovies);
         });
+    });
+
+    // Attach click event handler to the game button
+    gameButton.on('click', function() {
+        var selectedMovieGames = []; // Array to store games associated with selected movies
+        console.log('Clicked Get Games button');
+        // Iterate through each selected movie
+        $('.movie-list img.clicked').each(function() {
+            var category = $(this).data('category');
+            var movieTitle = $(this).attr('alt');
+
+            // Access the associated games for the selected movie
+            var associatedGames = movies[category][movieTitle];
+
+            // Add associated games to the selectedMovieGames array
+            selectedMovieGames = selectedMovieGames.concat(associatedGames);
+        });
+
+        // Clear the game list
+        $('.game-list').empty();
+
+        // Display the associated games below the button
+        for (var i = 0; i < selectedMovieGames.length; i++) {
+            var gameTitle = selectedMovieGames[i];
+            console.log(gameTitle);
+            var gameElement = $('<h1>' + gameTitle + '</h1>');
+            $('.game-list').append(gameElement);
+        }
     });
 });

@@ -234,19 +234,38 @@ h1{
     filter: brightness(0.1);
 }
 
-/* I have a dim class for the images that are not selected 
-It looks like this: movieList.find('img').not(movie).addClass('dim');
-*/
+/* Style the image when it is clicked */
 .movie-list img.dim {
     filter: brightness(0.5);
 }
 
+/* Create a shadow effect when the image is clicked */
 .movie-list img.Action{
     box-shadow: 0 0 15px #fed71a;
 }
 
 .movie-list img.Horror{
     box-shadow: 0 0 15px #82111f;
+}
+
+.movie-list img.Mystery{
+    box-shadow: 0 0 15px #813c85;
+}
+
+.movie-list img.Adventure{
+    box-shadow: 0 0 15px #f8b37f;
+}
+
+.movie-list img.Comedy{
+    box-shadow: 0 0 15px #ee8055;
+}
+
+.movie-list img.Documentary{
+    box-shadow: 0 0 15px #8abcd1;
+}
+
+.movie-list img.Western{
+    box-shadow: 0 0 15px #55bb8a;
 }
 
 hr {

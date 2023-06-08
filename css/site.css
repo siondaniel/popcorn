@@ -10,6 +10,10 @@ body{
     overflow-x: hidden;
 }
 
+body::-webkit-scrollbar {
+    display: none;
+}
+
 header {
     display: flex;
     align-items: center;
@@ -85,26 +89,20 @@ h1{
     right: 5px;
 }
 
-.box-list-container {
-    padding-left: 46px; /* Add left padding to the container */
-    padding-right: 46px; /* Add right padding to the container */
-    overflow-x: auto; /* Enable horizontal scrolling */
-    overflow-y: hidden; /* Hide the vertical scrollbar */
-}
-
 .box-list {
     overflow-x: auto;
     white-space: nowrap;
-    padding: 10px 0;
 }
 
 .box-list::-webkit-scrollbar {
     height: 8px; /* Adjust the height of the scrollbar */
     background-color: #000000; /* Set the background color of the scrollbar */
+    border-radius: 10px;
 }
 
 .box-list::-webkit-scrollbar-thumb {
     background-color: #8F6D6D; /* Set the color of the scrollbar thumb */
+    border-radius: 10px;
 }
 
 .box-list::-webkit-scrollbar-thumb:hover {
@@ -114,12 +112,12 @@ h1{
 .box {
     background: #191C1D;
     display: inline-block;
+    margin-left: 46px;
     width: 221px;
     height: 68px;
     top: 222px;
     border-radius: 12px;
     /* space between boxes */
-    margin-right: 32px;
     margin-top: 102px;
 }
 
@@ -203,34 +201,29 @@ h1{
     color: #813c85;
 }
 
-.movie-list-container {
-    padding-left: 46px; /* Add left padding to the container */
-    padding-right: 46px; /* Add right padding to the container */
-    overflow-x: auto; /* Enable horizontal scrolling */
-    overflow-y: hidden; /* Hide the vertical scrollbar */
-}
-
 .movie-list {
     margin-top: 10px;
+    margin-left: 0; /* Remove the left margin */
+    margin-right: 0; /* Remove the right margin */
     display: none;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-content: flex-start;
-    overflow-x: auto;
     overflow-y: hidden;
-    width: 100%; /* Ensure the movie list spans the full width */
+    width: 100%; /* Adjusted width */
     height: 500px; /* Adjust the predefined height as needed */
+    -webkit-overflow-scrolling: touch; /* Enable smooth scrolling on iOS */
 }
-
 
 .movie-list::-webkit-scrollbar {
     height: 8px; /* Adjust the height of the scrollbar */
     background-color: #000000; /* Set the background color of the scrollbar */
-    padding-left: 46px;
+    border-radius: 10px;
 }
 
 .movie-list::-webkit-scrollbar-thumb {
     background-color: #8F6D6D; /* Set the color of the scrollbar thumb */
+    border-radius: 10px;
 }
 
 .movie-list::-webkit-scrollbar-thumb:hover {
@@ -239,6 +232,8 @@ h1{
 
 .movie-list .row {
     margin-top: 10px;
+    margin-left: 46px; /* Add the left margin only when needed */
+    margin-right: 46px; /* Add the right margin only when needed */
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
@@ -298,7 +293,6 @@ hr {
     margin-top: 40px;
     margin-bottom: 40px;
     margin-left: 46px;
-    margin-right: 46px;
 }
 
 /*
@@ -329,6 +323,35 @@ hr {
 
 .game-button:hover {
     background-color: #8F6D6D;
+}
+
+.game-results-container {
+    display: flex;
+    align-items: center;
+}
+
+.restart-container {
+    margin-left: 20px;
+    margin-top: -85px;
+}
+
+#restartIcon {
+    display: none;
+}
+
+#restartIcon:hover {
+    cursor: pointer;
+    filter: brightness(0.5);
+}
+
+h3.game-results {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    color: #A5A5A5;
+    margin-top: -50px;
+    margin-left: 46px;
 }
 
 .popup-movie {

@@ -232,9 +232,10 @@ $(document).ready(function() {
     var popupMessage = $('#popupMessage');
     var infoIcon = $('#infoIcon');
     var closeButton = $('.close-button'); // Close popup button
+    var boxes = $('.box'); // All boxes (genres)
     var gameButton = $('#gameButton'); // Generate game button
+    var restartIcon = $('#restartIcon'); // Restart game search button
     var movieList = $('.movie-list'); // List of movies
-    var boxes = $('.box');
     var selectedCategories = []; // Array to store selected categories
     var selectedMovies = []; // Array to store selected movies
 
@@ -400,6 +401,13 @@ $(document).ready(function() {
     gameButton.on('click', function() {
         var selectedMovieGames = []; // Array to store games associated with selected movies
         console.log('Clicked Get Games button');
+
+        // Hide the game button
+        gameButton.hide();
+
+        // Show the reset button
+        restartIcon.show();
+
         // Iterate through each selected movie
         $('.movie-list img.clicked').each(function() {
             var category = $(this).data('category');
@@ -416,11 +424,25 @@ $(document).ready(function() {
         $('.game-list').empty();
 
         // Display the associated games below the button
-        for (var i = 0; i < selectedMovieGames.length; i++) {
+        if (selectedMovieGames.length > 0) {
+            var gameResultsText = "Here are your game results:";
+            $('.game-results').text(gameResultsText);
+
+            for (var i = 0; i < selectedMovieGames.length; i++) {
             var gameTitle = selectedMovieGames[i];
             console.log(gameTitle);
             var gameElement = $('<h1>' + gameTitle + '</h1>');
             $('.game-list').append(gameElement);
+            }
+        } else {
+            var noGameResultsText = "No games found for the selected movies.";
+            $('.game-results').text(noGameResultsText);
         }
+    });
+
+    // Attach click event handler to the restart icon
+    $('#restartIcon').on('click', function() {
+        // Refresh the page
+        location.reload();
     });
 });

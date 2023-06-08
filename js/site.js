@@ -5,21 +5,21 @@
 // Define the movies by genre
 var movies = {
     'Action': {
-        'Atomic Blonde': [],
-        'Die Hard(1988)': [],
-        'Drive': [],
-        'Gladiator': [],
-        'Inception': [],
-        'John Wick (2014)': [],
-        'Kill Bill': ['Kill Bill Java Game','Absolver'],
-        'Matrix (1999)': [],
-        'Mr And Ms Smith': [],
+        'Atomic Blonde': ['Golden Eye 007', 'Invisible,Inc.'],
+        'Die Hard(1988)': ['Die Hard', 'Die Hard Vendetta'],
+        'Drive': ['City Car Driving', 'DiRT Rally'],
+        'Gladiator': ['God of War Ragnarok', "Assassin's Creed Odyssey"],
+        'Inception': ['Superhot', 'Watch Dogs 2'],
+        'John Wick (2014)': ['Cyberpunk 2077', 'Superhot'],
+        'Kill Bill': ['Kill Bill Java Game', 'Absolver'],
+        'Matrix (1999)': ['Superhot', 'Enter the Matrix'],
+        'Mr And Ms Smith': ["Assassin's Creed Mirage", 'It Takes Two'],
         'Police Stories': ['Police Stories', 'Contraband Police'],
-        'Predator (1987)': [],
+        'Predator (1987)': ['Predator Hunting Grounds', 'Alien Isolation'],
         'Robocop': ['Cyberpunk 2077', 'Watch Dogs Legion'],
-        'Rush Hour (1998)': [],
-        'Super Cop (1992)': [],
-        'Top Gun (1987)': []
+        'Rush Hour (1998)': ['Rush Hour 3D', 'Parking Jam 3D'],
+        'Super Cop (1992)': ['Roblox', 'Sleeping Dogs'],
+        'Top Gun (1987)': [''. ]
     },
     'Horror': {
         'A Girl Walks Home At Night Alone': [],

@@ -429,10 +429,10 @@ $(document).ready(function() {
             $('.game-results').text(gameResultsText);
 
             for (var i = 0; i < selectedMovieGames.length; i++) {
-            var gameTitle = selectedMovieGames[i];
-            console.log(gameTitle);
-            var gameElement = $('<h1>' + gameTitle + '</h1>');
-            $('.game-list').append(gameElement);
+                var gameTitle = selectedMovieGames[i];
+                console.log(gameTitle);
+                var gameElement = $('<h1>' + gameTitle + '</h1>');
+                $('.game-list').append(gameElement);
             }
         } else {
             var noGameResultsText = "No games found for the selected movies.";

@@ -32,11 +32,11 @@ var movies = {
         'Land Of The Dead': ['Resident Evil 2 Remake', 'Dying Light'],
         'Lights Out': ['', ''],
         'Scream': ['Dead By Daylight', 'Among Us'],
-        'Shadow Of The Vampire': [],
-        'The House Of Dracula': [],
-        'The House Of The Devil': [],
-        'The Ring': [],
-        'Zombieland': []
+        'Shadow Of The Vampire': ['Castlevania', 'Vampire: The Masquerade - Bloodlines'],
+        'The House Of Dracula': ['Vampyr', 'Vampire: The Masquerade - Bloodlines'],
+        'The House Of The Devil': ['', ''],
+        'The Ring': ['Dead by Daylight', 'Visage'],
+        'Zombieland': ['Dead Rising', 'Dead Island 2']
     },
     'Mystery': {
         'Midsommar': [],

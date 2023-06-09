@@ -482,6 +482,7 @@ $(document).ready(function() {
             var gameResultsText = "Here are your game results:";
             $('.game-results').html(gameResultsText);
             var gameListText = "";
+
             for (var genre in selectedGamesByGenre) {
                 console.log('Genre: ' + genre);
                 if (selectedGamesByGenre.hasOwnProperty(genre)) {
@@ -489,16 +490,21 @@ $(document).ready(function() {
                     gameListText += '<div class="genre-box">';
                     gameListText += '<h2>' + genre + ':</h2>';
                     var movieGames = selectedGamesByGenre[genre];
-                    for (var movieTitle in movieGames) {
+                        for (var movieTitle in movieGames) {
                         // Check if the movieGames object has the movieTitle property
                         if (movieGames.hasOwnProperty(movieTitle)) {
                             var game = movieGames[movieTitle];
-                            // If there are multiple games, display them in a list
-                            for (var i = 0; i < game.gameTitles.length; i++) {
-                                gameListText += '<div class="game-box">';
-                                gameListText += '<h3 class="game-title" data-original-title="' + game.gameTitles[i] + '">' + game.gameTitles[i] + '</h3>';
-                                gameListText += '<span class="movie-title">' + movieTitle + '</span>';
-                                gameListText += '</div>';
+                                for (var i = 0; i < game.gameTitles.length; i++) {
+                                    // If there are multiple games, display them in a list
+                                    var gameTitle = game.gameTitles[i];
+                                    // Remove spaces from the game title to use as a class name
+                                    gameTitle = gameTitle.replace(/\s/g, '');
+                                    var gameImageSrc = 'img/gamestomovies/' + genre + '/' + gameTitle + '.png';
+                                    gameListText += '<div class="game-box">';
+                                    gameListText += '<img class="game-image" src="' + gameImageSrc + '" alt="' + gameTitle + '">';
+                                    gameListText += '<h3 class="game-title" data-original-title="' + game.gameTitles[i] + '">' + game.gameTitles[i] + '</h3>';
+                                    gameListText += '<span class="movie-title">' + movieTitle + '</span>';
+                                    gameListText += '</div>';
                             }
                         }
                     }
@@ -506,7 +512,6 @@ $(document).ready(function() {
                 }
             }
 
-            // Display the game results
             $('.game-list').html(gameListText);
 
             $('.game-title').siblings('.movie-title').hide();

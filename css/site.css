@@ -440,3 +440,8 @@ h2 {
     color: #888888;
     margin-top: 4px;
 }
+
+.game-image {
+    height: 200px; /* Adjust the height as desired */
+    object-fit: cover; /* Ensure the image fills the container */
+}

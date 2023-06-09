@@ -107,7 +107,7 @@ var movies = {
         'Reggie': ['MLB the Show 21', 'Baseball Stars']
     },
     'Western': {
-        'Broken Arrow': [],
+        'Broken Arrow': ['Fall Out: New Vegas', 'Gun'],
         'Magnificent Seven': [],
         'For a Few Dollars More': [],
         'The Harder They Fall': [],

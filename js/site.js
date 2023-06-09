@@ -108,20 +108,20 @@ var movies = {
     },
     'Western': {
         'Broken Arrow': ['Fall Out: New Vegas', 'Gun'],
-        'Magnificent Seven': [],
-        'For a Few Dollars More': [],
-        'The Harder They Fall': [],
-        'Django': [],
-        'A Fist Full of Dollars': [],
-        'Terror on the Prairie': [],
-        'Vengenance': [],
-        'Brokeback Mountain': [],
-        'Once Upon a Time in the West': [],
-        'High Noon': [],
-        'Silverado': [],
-        'Hostiles': [],
-        'Tombstone': [],
-        'Rio Bravo': []
+        'Magnificent Seven': ['Red Dead Revolver', 'Desperados III'],
+        'For a Few Dollars More': ['Hard West', 'Evil West'],
+        'The Harder They Fall': ['TimeSplitters 2', 'Gun.Smoke'],
+        'Django': ['Red Redemption 2', 'Damnation'],
+        'A Fist Full of Dollars': ['Old World Blues', 'Ground Zero: Texas'],
+        'Terror on the Prairie': ['Tin Star', 'West of Loathing'],
+        'Vengenance': ['Hunt', 'Sunset Riders'],
+        'Brokeback Mountain': ['My Time at Portia', 'Mass Effect 3'],
+        'Once Upon a Time in the West': ['Weird West', 'Rosewater'],
+        'High Noon': ['Darkwatch: Cure of the West', 'Ground Zero: Texas'],
+        'Silverado': ['Red Steel 2', 'The Oregon Trail'],
+        'Hostiles': ['Highway Blossoms', 'Samurai Western'],
+        'Tombstone': ['SteamWorld Dig', 'Gunman Chronicles'],
+        'Rio Bravo': ['Piper']
     }
 };
 

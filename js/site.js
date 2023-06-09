@@ -125,8 +125,33 @@ var movies = {
     }
 };
 
+
 // Define the movie categories
 var categories = Object.keys(movies);
+
+// Define the folder paths for different genres
+var folderPaths = [
+    'img/movies/Action/',
+    'img/movies/Adventure/',
+    'img/movies/Comedy/',
+    'img/movies/Documentary/',
+    'img/movies/Horror/',
+    'img/movies/Mystery/',
+    'img/movies/Western/'
+];
+
+// Preload all images
+var preloadImages = $('.head');
+for (var i = 0; i < categories.length; i++) {
+    var category = categories[i];
+    var moviesInCategory = movies[category];
+    for (var movie in moviesInCategory) {
+        // remove spaces from movie name
+        movie = movie.replace(/\s/g, '');
+        var movieImageElement = $('<link rel="preload" href="img/movies/' + category + '/' + movie + '.png" as="image">');
+        preloadImages.append(movieImageElement);
+    }
+}
 
 // Shuffle the movies array
 function shuffleMovies(movieList, categories=[] ){
@@ -227,7 +252,21 @@ function styleSelectedMovies(movieElement, selectedMovies) {
     }
 }
 
+// Get the category of a movie by its title 
+function getCategoryByMovieTitle(movieTitle) {
+    for (var category in movies) {
+      if (movies.hasOwnProperty(category)) {
+        var moviesInCategory = movies[category];
+        if (moviesInCategory.hasOwnProperty(movieTitle)) {
+          return category;
+        }
+      }
+    }
+    return null; // Movie title not found in any category
+}
+
 $(document).ready(function() {
+    
     // Define variables
     var popupMessage = $('#popupMessage');
     var infoIcon = $('#infoIcon');
@@ -388,6 +427,11 @@ $(document).ready(function() {
             }
             movie.removeClass('Action');
             movie.removeClass('Horror');
+            movie.removeClass('Mystery');
+            movie.removeClass('Adventure');
+            movie.removeClass('Comedy');
+            movie.removeClass('Western');
+            movie.removeClass('Documentary');
         }
 
         // Apply styles based on the selectedMovies array
@@ -398,50 +442,93 @@ $(document).ready(function() {
     });
 
     // Attach click event handler to the game button
-    gameButton.on('click', function() {
-        var selectedMovieGames = []; // Array to store games associated with selected movies
+    $('#gameButton').on('click', function() {
+        var selectedGamesByGenre = {}; // Dictionary to hold selected games by genre
         console.log('Clicked Get Games button');
 
-        // Hide the game button
         gameButton.hide();
-
-        // Show the reset button
         restartIcon.show();
 
         // Iterate through each selected movie
-        $('.movie-list img.clicked').each(function() {
-            var category = $(this).data('category');
-            var movieTitle = $(this).attr('alt');
+        for (var i = 0; i < selectedMovies.length; i++) {
+            var movieTitle = selectedMovies[i];
+            var category = getCategoryByMovieTitle(movieTitle);
+            console.log('Selected movie: ' + movieTitle);
 
             // Access the associated games for the selected movie
             var associatedGames = movies[category][movieTitle];
 
-            // Add associated games to the selectedMovieGames array
-            selectedMovieGames = selectedMovieGames.concat(associatedGames);
-        });
+            // Create a game object with the category, movie title, and associated games
+            var game = {
+                category: category,
+                movieTitle: movieTitle,
+                gameTitles: associatedGames
+            };
+
+            // If the genre doesn't exist in the selectedGamesByGenre dictionary, create a new object for it
+            if (!selectedGamesByGenre.hasOwnProperty(category)) {
+                selectedGamesByGenre[category] = {};
+            }
+
+            // Add the game object to the corresponding genre and movie title in the dictionary
+            selectedGamesByGenre[category][movieTitle] = game;
+        }
 
         // Clear the game list
         $('.game-list').empty();
 
-        // Display the associated games below the button
-        if (selectedMovieGames.length > 0) {
+        // Display the associated games by genre and movie title below the button
+        if (Object.keys(selectedGamesByGenre).length > 0) {
             var gameResultsText = "Here are your game results:";
-            $('.game-results').text(gameResultsText);
-
-            for (var i = 0; i < selectedMovieGames.length; i++) {
-                var gameTitle = selectedMovieGames[i];
-                console.log(gameTitle);
-                var gameElement = $('<h1>' + gameTitle + '</h1>');
-                $('.game-list').append(gameElement);
+            $('.game-results').html(gameResultsText);
+            var gameListText = "";
+            for (var genre in selectedGamesByGenre) {
+                console.log('Genre: ' + genre);
+                if (selectedGamesByGenre.hasOwnProperty(genre)) {
+                    gameListText += '<br><div class="genre-container">';
+                    gameListText += '<div class="genre-box">';
+                    gameListText += '<h2>' + genre + ':</h2>';
+                    var movieGames = selectedGamesByGenre[genre];
+                    for (var movieTitle in movieGames) {
+                        // Check if the movieGames object has the movieTitle property
+                        if (movieGames.hasOwnProperty(movieTitle)) {
+                            var game = movieGames[movieTitle];
+                            // If there are multiple games, display them in a list
+                            for (var i = 0; i < game.gameTitles.length; i++) {
+                                gameListText += '<div class="game-box">';
+                                gameListText += '<h3 class="game-title" data-original-title="' + game.gameTitles[i] + '">' + game.gameTitles[i] + '</h3>';
+                                gameListText += '<span class="movie-title">' + movieTitle + '</span>';
+                                gameListText += '</div>';
+                            }
+                        }
+                    }
+                    gameListText += '</div>';
+                }
             }
+
+            // Display the game results
+            $('.game-list').html(gameListText);
+
+            $('.game-title').siblings('.movie-title').hide();
+
+            // Add hover functionality to game titles to show movie title
+            $('.game-title').hover(function() {
+                var movieTitle = $(this).siblings('.movie-title').text();
+                $(this).text(movieTitle);
+            }, function() {
+                var originalTitle = $(this).data('original-title');
+                $(this).text(originalTitle);
+                $(this).siblings('.movie-title').hide();
+            });
         } else {
             var noGameResultsText = "No games found for the selected movies.";
             $('.game-results').text(noGameResultsText);
         }
+
     });
 
     // Attach click event handler to the restart icon
-    $('#restartIcon').on('click', function() {
+    restartIcon.on('click', function() {
         // Refresh the page
         location.reload();
     });

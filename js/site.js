@@ -474,7 +474,7 @@ $(document).ready(function() {
             selectedGamesByGenre[category][movieTitle] = game;
         }
 
-        // Clear the game list
+        /// Clear the game list
         $('.game-list').empty();
 
         // Display the associated games by genre and movie title below the button
@@ -482,29 +482,29 @@ $(document).ready(function() {
             var gameResultsText = "Here are your game results:";
             $('.game-results').html(gameResultsText);
             var gameListText = "";
-
             for (var genre in selectedGamesByGenre) {
                 console.log('Genre: ' + genre);
                 if (selectedGamesByGenre.hasOwnProperty(genre)) {
-                    gameListText += '<br><div class="genre-container">';
-                    gameListText += '<div class="genre-box">';
-                    gameListText += '<h2>' + genre + ':</h2>';
+                    gameListText += '<h2 class="'+ genre + '">' + genre + ':</h2>';
                     var movieGames = selectedGamesByGenre[genre];
-                        for (var movieTitle in movieGames) {
+                    gameListText += '<div class="games-container">';
+                    for (var movieTitle in movieGames) {
                         // Check if the movieGames object has the movieTitle property
                         if (movieGames.hasOwnProperty(movieTitle)) {
                             var game = movieGames[movieTitle];
-                                for (var i = 0; i < game.gameTitles.length; i++) {
-                                    // If there are multiple games, display them in a list
-                                    var gameTitle = game.gameTitles[i];
-                                    // Remove spaces from the game title to use as a class name
-                                    gameTitle = gameTitle.replace(/\s/g, '');
-                                    var gameImageSrc = 'img/gamestomovies/' + genre + '/' + gameTitle + '.png';
-                                    gameListText += '<div class="game-box">';
-                                    gameListText += '<img class="game-image" src="' + gameImageSrc + '" alt="' + gameTitle + '">';
-                                    gameListText += '<h3 class="game-title" data-original-title="' + game.gameTitles[i] + '">' + game.gameTitles[i] + '</h3>';
-                                    gameListText += '<span class="movie-title">' + movieTitle + '</span>';
-                                    gameListText += '</div>';
+                            // If there are multiple games, display them in a list
+                            for (var i = 0; i < game.gameTitles.length; i++) {
+                                var gameTitle = game.gameTitles[i];
+                                // Remove the spaces from the game title to use as the image source
+                                var gameTitleNoSpaces = gameTitle.replace(/\s/g, '');
+                                var gameImageSrc = 'img/gamestomovies/' + genre + '/' + gameTitleNoSpaces + '.png';
+
+                                gameListText += '<div class="game-box">';
+                                gameListText += '<div class="game-image-container">';
+                                gameListText += '<img class="game-image" src="' + gameImageSrc + '" alt="' + movieTitle + '">';
+                                gameListText += '</div>';
+                                gameListText += '<h3 class="game-title" title="' + gameTitle + '">' + gameTitle + '</h3>';
+                                gameListText += '</div>';
                             }
                         }
                     }
@@ -514,17 +514,6 @@ $(document).ready(function() {
 
             $('.game-list').html(gameListText);
 
-            $('.game-title').siblings('.movie-title').hide();
-
-            // Add hover functionality to game titles to show movie title
-            $('.game-title').hover(function() {
-                var movieTitle = $(this).siblings('.movie-title').text();
-                $(this).text(movieTitle);
-            }, function() {
-                var originalTitle = $(this).data('original-title');
-                $(this).text(originalTitle);
-                $(this).siblings('.movie-title').hide();
-            });
         } else {
             var noGameResultsText = "No games found for the selected movies.";
             $('.game-results').text(noGameResultsText);
@@ -532,9 +521,57 @@ $(document).ready(function() {
 
     });
 
+    // Attach hover event handler to games
+    $('.game-list').on('mouseenter', '.game-image-container img', function() {
+        // Add the hovered class to the game
+        var game = $(this);
+        game.addClass('hovered');
+
+        // Get the game name
+        var movieName = game.attr('alt');
+
+        console.log('Hovered over game: ' + game.attr('title'));
+
+        // Create a new popup message element
+        var popupMessageElement = $('<div class="popup-movie" id="movieMessage"></div>');
+        var messageContentElement = $('<div class="movie-content" id="movieContent"></div>');
+        var movieNameElement = $('<p class="movie-title">' + movieName + '</p>');
+
+        // Append the game name and close button to the message content element
+        messageContentElement.append(movieNameElement);
+        popupMessageElement.append(messageContentElement);
+
+        // Change the CSS of the popup message element
+        popupMessageElement.css({
+            // Make it appear directly on top of the game (overlapping)
+            position: 'absolute',
+            top: game.offset().top,
+            left: game.offset().left,
+            // Make it the same size as the movie
+            width: game.width(),
+            height: game.height(),
+            // Make it appear on top of all other elements
+            'z-index': 1000
+        });
+
+        // Append the popup message element to the movie
+        $('body').prepend(popupMessageElement);
+
+        // Attach the mouseout event handler to the popup message element
+        game.on('mouseleave', function() {
+            // Remove the popup message from the movie
+            popupMessageElement.remove();
+            // Remove the hover class from the movie element
+            game.removeClass('hovered');
+        });
+
+    });
+
+    // Attach scroll event handler to games
+
     // Attach click event handler to the restart icon
     restartIcon.on('click', function() {
-        // Refresh the page
-        location.reload();
+        // Have this be the same as generate game button click
+        gameButton.trigger('click');
     });
 });

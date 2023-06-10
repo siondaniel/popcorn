@@ -376,72 +376,89 @@ h3.game-results {
     height: 100%;
 }
 
-/* .genre-box {
-    margin-top: 20px;
-} */
-
 h2 {
+    font-family: 'Inter', Arial, sans-serif;
+    font-style: 20px;
+    font-weight: 600;
+    margin-left: 46px;
+}
+
+h2.Action{
     color: #fed71a;
-    font-family: 'Inter', Arial, sans-serif;
-    font-style: 50px;
-    font-weight: 600;
-    margin-left: 46px;
 }
 
-.movie-box {
-    display: inline-block;
-    margin-left: 20px;
+h2.Horror{
+    color: #82111f;
 }
 
-.game-box {
-    background: #191C1D;
-    display: inline-block;
-    width: auto;
-    height: 68px;
-    border-radius: 12px;
-    margin-bottom: 10px;
-    padding: 10px;
-    position: relative;
-    margin-left: 46px;
+h2.Mystery{
+    color: #813c85;
 }
 
-.game-box:hover {
-    cursor: pointer;
-    background: #3c3c3c;
+h2.Adventure{
+    color: #f8b37f;
 }
 
-.game-title {
-    margin: 0;
-    font-family: 'Inter', Arial, sans-serif;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 50px;
-    color: #A5A5A5;
+h2.Comedy{
+    color: #ee8055;
+}
+
+h2.Documentary{
+    color: #8abcd1;
+}
+
+h2.Western{
+    color: #55bb8a;
 }
 
 .game-list {
     margin-left: 46px;
+  }
+  
+  .games-container {
     display: flex;
-    white-space: nowrap;
-}
-
-.genre-box {
-    margin-top: 20px;
-    margin-left: 46px;
-    display: flex;
-    overflow-x: visible;
-    white-space: nowrap;
-}
-
-.movie-title-game {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+  
+  .games-container img {
+    margin-right: 10px;
+  }
+  
+  .game-title {
+    margin: 0;
     font-family: 'Inter', Arial, sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    color: #888888;
-    margin-top: 4px;
-}
-
-.game-image {
-    height: 200px; /* Adjust the height as desired */
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    color: #A5A5A5;
+    text-align: center;
+    margin-bottom: 46px;
+  }
+  
+  .game-image {
+    height: 150px; /* Adjust the height as desired */
     object-fit: cover; /* Ensure the image fills the container */
-}
+    border-radius: 10px;
+    margin-left: 46px;
+  }
+  
+  .game-image:hover {
+    cursor: pointer;
+    background: #3c3c3c;
+    filter: brightness(0.1);
+  }
+
+  .game-image-hover {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+  }
+  
+  

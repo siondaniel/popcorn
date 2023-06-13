@@ -30,11 +30,11 @@ var movies = {
         'Frankenstein': ['Outlast', "The Wanderer: Frankenstein's Creature"],
         'It': ['Death Park', 'Dark Deception'],
         'Land Of The Dead': ['Resident Evil 2 Remake', 'Dying Light'],
-        'Lights Out': ['', ''],
+        'Lights Out': [],
         'Scream': ['Dead By Daylight', 'Among Us'],
         'Shadow Of The Vampire': ['Castlevania', 'Vampire: The Masquerade - Bloodlines'],
         'The House Of Dracula': ['Vampyr', 'Vampire: The Masquerade - Bloodlines'],
-        'The House Of The Devil': ['', ''],
+        'The House Of The Devil': [],
         'The Ring': ['Dead by Daylight', 'Visage'],
         'Zombieland': ['Dead Rising', 'Dead Island 2']
     },

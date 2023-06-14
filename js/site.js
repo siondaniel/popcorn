@@ -19,7 +19,7 @@ var movies = {
         'Robocop': ['Cyberpunk 2077', 'Watch Dogs Legion'],
         'Rush Hour (1998)': ['Rush Hour 3D', 'Parking Jam 3D'],
         'Super Cop (1992)': ['Roblox', 'Sleeping Dogs'],
-        'Top Gun (1987)': ['Ace Combat', 'Flight Simulator']
+        'Top Gun (1987)': ['Ace Combat', 'Flight Simulator'],
     },
     'Horror': {
         'A Girl Walks Home At Night Alone': ['Dark', 'Alone in the Dark'],
@@ -30,13 +30,13 @@ var movies = {
         'Frankenstein': ['Outlast', "The Wanderer: Frankenstein's Creature"],
         'It': ['Death Park', 'Dark Deception'],
         'Land Of The Dead': ['Resident Evil 2 Remake', 'Dying Light'],
-        'Lights Out': [],
+        'Lights Out': ['DarkestDungeon', 'Bloodborne'],
         'Scream': ['Dead By Daylight', 'Among Us'],
         'Shadow Of The Vampire': ['Castlevania', 'Vampire: The Masquerade - Bloodlines'],
-        'The House Of Dracula': ['Vampyr', 'Vampire: The Masquerade - Bloodlines'],
-        'The House Of The Devil': [],
+        'The House Of Dracula': ['Vampyre', 'Vampire: The Masquerade - Bloodlines'],
+        'The House Of The Devil': ['Devil May Cry', 'Diablo'],
         'The Ring': ['Dead by Daylight', 'Visage'],
-        'Zombieland': ['Dead Rising', 'Dead Island 2']
+        'Zombieland': ['Dead Rising', 'Dead Island 2'],
     },
     'Mystery': {
         'Midsommar': ['Pathologic 2', 'Witch Hunt'],
@@ -53,14 +53,14 @@ var movies = {
         'The Game': ['L.A. Noire', 'Her Story'],
         'The Girl with the Dragon Tattoo': ['Heavy Rain', 'Red Dead 2'],
         'The Prestige': ['Magician', 'Banners Begone!'],
-        'Transcendence': ['Halo: Combat Evolved', 'Horizon Zero Dawn']
+        'Transcendence': ['Halo: Combat Evolved', 'Horizon Zero Dawn'],
     },
     'Adventure': {
         'Dune': ['Destiny', '2 Morrowind'],
-        'Transformers': ['Transfromers: BattleGrounds', 'Earth Defense Force: World Brothers'],
+        'Transformers': ['Transformers: BattleGrounds', 'EARTH DEFENSE FORCE: WORLD BROTHERS'],
         'Everything, Everywhere, All at Once': ['Alan Awake', 'Firewatch'],
         'Interstellar': ['Outer Wilds', 'Spore'],
-        'Inception': ['Ai The Somnum Files', 'Death Stranding'],
+        'Inception': ['AI The Somnum Files', 'Death Stranding'],
         'Peter Pan': ['Kingdom Hearts', 'Planet Alpha'],
         "Harry Potter and the Sorcerer's Stone": ['Hogwarts Legacy', 'Skyrim'],
         'Kingsman: The Secret Service': ["Assassin's Creed Cyndicate", 'Hitman World of Assassination'],
@@ -68,26 +68,26 @@ var movies = {
         'Avengers: Infinity War': ['Spider-man PS4', "Marvel's Avengers"],
         'Pirates of the Caribbean': ['Sea of Thieves', 'Kingdom Hearts'],
         'Little Mermaid': ['Semblance', 'Pikuniku'],
-        'Star Trek Beyond': ['Citizen Slepper', "No Man's Sky"],
+        'Star Trek Beyond': ['Citizen Sleeper', "No Man's Sky"],
         'Jurassic World': ['Jurassic World Evolution 2', 'Dino Crisis'],
-        'Into the Wild': ['The Forest', 'Survival Kids']
+        'Into the Wild': ['The Forest', 'Survival Kids'],
     },
     'Comedy': {
         'Groundhog Day': ['Life Is Strange', '12 Minutes'],
         'Ace Ventura: Pet Detective': ['Stray', 'Untitled Goose Game'],
-        'Tommy Boy': ['Life is Stranger', 'The Gardens Between'],
+        'Tommy Boy': ['Life is Strange', 'The Gardens Between'],
         '21 Jump Street': ['Sleeping Dogs', 'GTA 5'],
         "Bill and Ted's Excellent Adventure": ['Fall Out', 'A Way Out'],
         'The Grand Budapest Hotel': ['Hotel Giant', 'Bloody Hell Hotel'],
         'Bettlejuice': ["Luigi's Mansion", 'Phasmophobia'],
         'Clue': ['Danganronpa', 'Phoenix Wright Ace Attorney'],
         'Galaxy Quest': ['High On Life', 'Journey to the Savage Planet'],
-        'Kung Fu Hustle': ['Judgment', 'Yakuza'],
+        'Kung Fu Hustle': ['Judgement', 'Yakuza'],
         'Elf': ['Bubble-Charms', 'Daze before Christmas'],
-        'Ghostbusters': ['Phasmophobia', "Luigi's Masion"],
+        'Ghostbusters': ['Phasmophobia', "Luigi's Mansion"],
         'Coming to America': ['Sniper Elite III', 'Resident Evil II'],
         'Clueless': ['Super Smash Bros', 'It Takes Two'],
-        'Airplane': ['Falcon 4.0', 'War Thunder']
+        'Airplane': ['Falcon 4.0', 'War Thunder'],
     },
     'Documentary': {
         'Queen Cleopatra': ["Assassin's Creed: Origins", 'Civilization 5'],
@@ -101,16 +101,16 @@ var movies = {
         'Faces of Death': ['Bloodborne', 'Dark Souls'],
         'Making a Murderer': ['Ace Attorney', 'Professor Waylon'],
         'The Deepest Breath': ['Beyond Blue', 'Hydrophobia'],
-        'Forensic Files': ['CSI: Hard Evidence', "Where's the Killer Activity"],
-        'The Rescue': ['Rocket League', 'Supper Soccer'],
+        'Forensic Files': ['CSI: Hard Evidence', "Criminal Case"],
+        'The Rescue': ['Rocket League', 'Super Soccer'],
         'The God Man': ['Hades', 'Too Human'],
-        'Reggie': ['MLB the Show 21', 'Baseball Stars']
+        'Reggie': ['MLB the Show 21', 'Baseball Stars'],
     },
     'Western': {
         'Broken Arrow': ['Fall Out: New Vegas', 'Gun'],
         'Magnificent Seven': ['Red Dead Revolver', 'Desperados III'],
         'For a Few Dollars More': ['Hard West', 'Evil West'],
-        'The Harder They Fall': ['TimeSplitters 2', 'Gun.Smoke'],
+        'The Harder They Fall': ['TimeSplitters 2', 'Gun Smoke'],
         'Django': ['Red Redemption 2', 'Damnation'],
         'A Fist Full of Dollars': ['Old World Blues', 'Ground Zero: Texas'],
         'Terror on the Prairie': ['Tin Star', 'West of Loathing'],
@@ -121,7 +121,7 @@ var movies = {
         'Silverado': ['Red Steel 2', 'The Oregon Trail'],
         'Hostiles': ['Highway Blossoms', 'Samurai Western'],
         'Tombstone': ['SteamWorld Dig', 'Gunman Chronicles'],
-        'Rio Bravo': ['Piper']
+        'Rio Bravo': ['Piper','Helldorado'],
     }
 };
 

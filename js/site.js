@@ -3,6 +3,7 @@
 // Date: 05/26/2023
 
 // Define the movies by genre
+// Then define the games that are similar to the movies
 var movies = {
     'Action': {
         'Atomic Blonde': ['Golden Eye 007', 'Invisible,Inc.'],

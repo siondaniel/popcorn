@@ -64,7 +64,7 @@ var movies = {
         'Inception': ['AI The Somnum Files', 'Death Stranding'],
         'Peter Pan': ['Kingdom Hearts', 'Planet Alpha'],
         "Harry Potter and the Sorcerer's Stone": ['Hogwarts Legacy', 'Skyrim'],
-        'Kingsman: The Secret Service': ["Assassin's Creed Cyndicate", 'Hitman World of Assassination'],
+        'Kingsman: The Secret Service': ["Assassin's Creed Syndicate", 'Hitman World of Assassination'],
         'The Flash': ['Injustice 2', 'Vanquish'],
         'Avengers: Infinity War': ['Spider-man PS4', "Marvel's Avengers"],
         'Pirates of the Caribbean': ['Sea of Thieves', 'Kingdom Hearts'],
